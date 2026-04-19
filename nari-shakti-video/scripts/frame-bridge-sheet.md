@@ -1,16 +1,62 @@
-# Frame Bridge Sheet — Part-to-Part Continuity
-> **Purpose:** Ensure every part's FIRST FRAME visually connects to the PREVIOUS part's LAST FRAME,  
-> so the final edit feels like one continuous video, not 7 separate clips.
+# Frame Bridge Sheet — First Frame Stills & Part-to-Part Continuity
+> **Purpose:**  
+> 1. Every part needs a **first-frame still image** generated before its Veo3 clip is created.  
+>    Veo3 will animate starting from that still — so the first frame controls exactly how the clip opens.  
+> 2. Each first-frame still must visually match the **last frame of the previous part**,  
+>    so the final edit feels like one continuous video, not 7 separate clips.
 
 ---
 
 ## How to Use This Sheet
 
-**For each part (except Part 1):**
-1. Look up the **Last Frame Spec** of the previous part in this sheet
-2. Generate that last-frame as a static image using the selected reference images from `characters/reference-image-prompts.md`
-3. Use that static image as the **starting frame reference** when generating the current part in Veo3
-4. In the Veo3 prompt, also add: *"begins exactly from [last frame description]"*
+**Complete flow for every part:**
+
+```
+Selected Reference Images (Phase 1)
+        ↓
+Generate First-Frame Still (this sheet — use reference images as input)
+        ↓  ← also confirm it matches previous part's last frame
+Upload First-Frame Still to Veo3 as "starting image"
+        ↓
+Veo3 animates from that still → outputs the video clip
+```
+
+**Step-by-step for each part:**
+1. Collect the selected reference images for this part's characters, backgrounds, and props
+2. Use the **First Frame Spec** + image-gen prompt from this sheet to generate the still
+3. Confirm the still matches the previous part's last frame (use the Last Frame Spec for comparison)
+4. Upload the approved still to Veo3 as the **starting/first frame image**
+5. Add the Veo3 prompt from `prompts/part-XX-*.md` and generate the clip
+
+> ⚠️ **Never generate a Veo3 clip without a first-frame still.** Generating without a starting image  
+> breaks visual consistency and makes the scene unpredictable.
+
+---
+
+## PART 1 — First Frame
+
+> Part 1 has no previous part, but it still needs a first-frame still so the opening shot is controlled.
+
+### Part 1 — First Frame Spec
+| Element | Description |
+|---------|-------------|
+| Setting | Parliament exterior — wide establishing shot |
+| Camera position | Slightly low angle, wide shot looking up at the building |
+| Color grade | Warm gold sunrise, saffron sky |
+| Key detail | Sun rays hit the triangular roof of the Parliament building dramatically |
+| Characters | None — building only |
+
+**Image Gen Prompt:**
+```
+2.5D animated cartoon still frame. India's new Parliament building (Sansad Bhavan) — 
+triangular/pyramidal roof, stone grey facade, grand entrance with pillars. Viewed from 
+slightly below at a wide angle looking up. Golden sunrise fills the background — warm 
+orange and deep gold rays strike the triangular roof dramatically. Majestic, inspiring 
+mood. No people or characters. Use reference: bg-parliament-exterior-day.png. 
+2.5D animated style, motion-graphic, cartoon illustration, Indian political symbolism, 
+cinematic lighting.
+```
+**Save As:** `frames/part-01-first-frame.png`
 
 ---
 
