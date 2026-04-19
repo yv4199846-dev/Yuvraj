@@ -69,24 +69,32 @@ nari-shakti-video/
 
 ---
 
-### Phase 2 — Generate Frame Bridge Stills (Part-to-Part continuity images)
+### Phase 2 — Generate First-Frame Stills (har part ki pehli image)
 
-> Using the selected reference images, generate a static still for the last frame of each part  
-> and the first frame of the next part. These ensure seamless visual connection.  
-> Full specs in: `scripts/frame-bridge-sheet.md`
+> Using the selected reference images from Phase 1, generate a **first-frame still image for every part**.  
+> This still is uploaded directly to Veo3 as the starting frame — Veo3 then animates from it.  
+> Each first-frame must also match the previous part's last frame for seamless continuity.  
+> Full specs + reference image lists in: `scripts/frame-bridge-sheet.md`
 
-- [ ] Generate `frames/part-01-last-frame.png` (PM at podium, warm gold)
-- [ ] Generate `frames/part-02-first-frame.png` → confirm it looks like a continuation of Part 1 last frame
-- [ ] Generate `frames/part-02-last-frame.png` (both women looking left)
-- [ ] Generate `frames/part-03-first-frame.png` → same Parliament interior, color flipped to cold grey
-- [ ] Generate `frames/part-03-last-frame.png` (chaos + BLOCKED stamp)
-- [ ] Generate `frames/part-04-first-frame.png` → Parliament corridor, figure from behind
-- [ ] Generate `frames/part-04-last-frame.png` (figure exited, shadow remains)
-- [ ] Generate `frames/part-05-first-frame.png` → bill floating in abstract space
-- [ ] Generate `frames/part-05-last-frame.png` (document on ground, red emerging)
-- [ ] Generate `frames/part-06-first-frame.png` → three women standing, deep red
-- [ ] Generate `frames/part-06-last-frame.png` (three women pointing, crowd emerging behind)
-- [ ] Generate `frames/part-07-first-frame.png` → same three women leading massive crowd
+**For each part, the process is:**
+1. Attach the reference images listed in `scripts/frame-bridge-sheet.md` → "📎 Reference Images to attach"
+2. Run the image-gen prompt from that sheet → generate the first-frame still
+3. Confirm it visually matches the previous part's last frame
+4. Save the approved still to `frames/`
+
+- [ ] **Part 1** first-frame → `frames/part-01-first-frame.png` (Parliament exterior, sunrise) · Ref: `bg-parliament-exterior-day.png`
+- [ ] **Part 1** last-frame → `frames/part-01-last-frame.png` (PM at podium, warm gold) · Ref: `pm-figure-ref.png` + `bg-parliament-interior-warm.png` + `prop-bill-document.png`
+- [ ] **Part 2** first-frame → `frames/part-02-first-frame.png` (split-screen women) · Ref: `rural-woman-ref.png` + `urban-woman-ref.png` + `bg-village-home.png` + `bg-city-scene.png`
+- [ ] **Part 2** last-frame → `frames/part-02-last-frame.png` (both women looking left) · Ref: `rural-woman-ref.png` + `urban-woman-ref.png`
+- [ ] **Part 3** first-frame → `frames/part-03-first-frame.png` (Parliament interior, cold grey) · Ref: `bg-parliament-interior-cold.png` + `shadow-figures-ref.png` + `prop-bill-document.png`
+- [ ] **Part 3** last-frame → `frames/part-03-last-frame.png` (chaos + BLOCKED stamp) · Ref: all Part 3 refs + `prop-blocked-stamp.png`
+- [ ] **Part 4** first-frame → `frames/part-04-first-frame.png` (corridor, figure from behind) · Ref: `opposition-figure-ref.png` + `bg-parliament-interior-cold.png`
+- [ ] **Part 4** last-frame → `frames/part-04-last-frame.png` (figure exited, shadow remains) · Ref: `opposition-figure-ref.png`
+- [ ] **Part 5** first-frame → `frames/part-05-first-frame.png` (bill floating, abstract space) · Ref: `prop-bill-document.png` + `bg-abstract-split.png`
+- [ ] **Part 5** last-frame → `frames/part-05-last-frame.png` (document on ground, red emerging) · Ref: `prop-bill-document.png` + `rural-woman-ref.png` + `shadow-figures-ref.png` + `bg-abstract-split.png`
+- [ ] **Part 6** first-frame → `frames/part-06-first-frame.png` (three women, deep red) · Ref: `rural-woman-ref.png` + `urban-woman-ref.png` + `elderly-woman-ref.png`
+- [ ] **Part 6** last-frame → `frames/part-06-last-frame.png` (three women pointing, crowd hint) · Ref: same as Part 6 first-frame
+- [ ] **Part 7** first-frame → `frames/part-07-first-frame.png` (massive crowd, three women at front) · Ref: `rural-woman-ref.png` + `urban-woman-ref.png` + `elderly-woman-ref.png` + `prop-women-crowd.png` + `bg-parliament-exterior-night.png`
 
 > ✅ Do NOT proceed to Phase 3 until every frame pair looks visually continuous at the cut point.
 
@@ -110,7 +118,7 @@ nari-shakti-video/
 > Use the selected reference images (Phase 1) AND the first-frame stills (Phase 2) as input.  
 > Copy-paste prompts from `prompts/` folder. Generate in order Part 1 → 7.
 
-- [ ] **Part 1** → Use `bg-parliament-exterior-day.png` + `pm-figure-ref.png` + `prop-bill-document.png` as references. Start from scratch (no previous last frame). Review: warm gold color + Parliament exterior.
+- [ ] **Part 1** → Upload `frames/part-01-first-frame.png` as starting frame. Use `bg-parliament-exterior-day.png` + `pm-figure-ref.png` + `prop-bill-document.png` as references. Review: warm gold color + Parliament exterior.
 - [ ] **Part 2** → Use `rural-woman-ref.png` + `urban-woman-ref.png` as references. Add `frames/part-02-first-frame.png` as starting frame. Confirm warm gold matches Part 1.
 - [ ] **Part 3** → Use `bg-parliament-interior-cold.png` + `shadow-figures-ref.png` as references. Add `frames/part-03-first-frame.png`. **CRITICAL:** confirm same Parliament layout as Part 1 with color flip to cold grey.
 - [ ] **Part 4** → Use `opposition-figure-ref.png` as reference. Add `frames/part-04-first-frame.png`. **CRITICAL:** figure must be BACK/SIDE only — regenerate if face is visible.
