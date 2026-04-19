@@ -1,55 +1,59 @@
 # Veo3 Image-to-Video Prompts — All 7 Parts
-> **Workflow:** Aapne jo cartoon first-frame images generate ki hain unhe **Veo3 mein upload karo** as "starting image".  
-> Phir neeche diya gaya prompt copy-paste karo. Veo3 us cartoon image ko animate karega.  
-> **Style goal:** Cartoon/2.5D illustration look rahe — lekin motion bilkul real jaise (natural breathing, cloth physics, lifelike expressions, cinematic camera).
 
 ---
 
-## HOW TO USE
+## ✅ VEO3 WORKFLOW — STEP 2 OF 2
 
 ```
-Step 1: frames/ folder mein se part ka first-frame .png open karo
-Step 2: Veo3 mein "Upload starting image" → apna cartoon first-frame upload karo
-Step 3: Neeche diya prompt copy-paste karo Veo3 ke text box mein
-Step 4: Duration: 8 seconds | Aspect ratio: 16:9 set karo
-Step 5: Generate karo
-```
+STEP 1 → scripts/first-frame-image-prompts.md se IMAGE prompt copy karo
+         → Midjourney/DALL-E se image generate karo → save karo
 
-> ✅ Starting image upload karna **zaruri** hai — warna Veo3 character design ignore kar deta hai.
+STEP 2 → Veo3 (Flow) kholо → "Upload starting image" click karo
+         → apni saved image upload karo
+         → neeche se us part ka VIDEO PROMPT copy-paste karo
+         → Duration aur 16:9 set karo → Generate karo
+
+⚠️  Image upload kiye BINA generate mat karo — warna character nahi aayega.
+```
 
 ---
 
 ## PART 1 — "नई उम्मीद की भोर" (0:00–0:08)
 
-**Starting Image to upload:** `frames/part-01-first-frame.png`  
-*(Parliament building, golden sunrise, cartoon 2.5D style)*
+**Starting Image to upload:** `frames/part-01-first-frame.png`
+*(Parliament interior — cartoon PM figure at podium holding glowing bill)*
 
 ```
-Animate this cartoon illustration into a living, breathing 8-second cinematic scene.
+Animate this cartoon Parliament chamber scene into a living 8-second cinematic clip.
+2.5D animated cartoon style throughout — do NOT make it photorealistic. Cartoon outlines
+and proportions must be preserved.
 
-The camera begins wide — a low-angle shot looking up at India's new Parliament building
-(Sansad Bhavan, triangular pyramidal roof). The building is in 2.5D animated cartoon style
-throughout — do NOT make it photorealistic.
+PM FIGURE ANIMATION (white kurta, saffron shawl, full grey beard):
+- Natural dignified breathing — his chest and shoulders rise and fall slowly, posture
+  remains upright and commanding throughout
+- The glowing document he holds pulses warmly — golden light breathes outward in slow
+  gentle waves, like a heartbeat of historic importance
+- His eyes are steady, wise, confident — natural blink timing (every 3-4 seconds)
+  looking out over the chamber with quiet pride
+- His saffron shawl sways very gently with his breathing — cloth physics, subtle drape
+  movement, not stiff
+- His hands holding the document have slight weight and solidity — the document is
+  held firmly, presented to the chamber
 
-Motion to animate:
-- Golden-saffron sun rays slowly sweep across the triangular roof — warm volumetric light
-  rays expand outward, rotating very gently like a sunrise in real time
-- The sky behind the building transitions from deep warm orange to bright gold as the sun
-  rises — soft gradient shift, like a real sunrise
-- Tiny golden light particles (bokeh) float upward slowly in the foreground
-- The Parliament flag on the rooftop waves gently in a light breeze — fabric physics,
-  natural ripple, not stiff
-- Camera movement: extremely slow push-in zoom from wide establishing shot → gradually
-  moving forward into the building entrance — dolly zoom feel, majestic and deliberate
-- Stone pillars and facade have subtle specular light glinting off them as the camera moves
-- A faint deep orchestral musical swell feeling is matched by the light expanding
+CHAMBER ENVIRONMENT ANIMATION:
+- The warm golden-saffron light fills the chamber like a sunrise — the light breathes
+  softly, expanding and relaxing gently
+- Seated cartoon figures on the benches are visible — subtle motion: slight head turns,
+  gentle shifting, conveying a rapt chamber audience
+- Golden bokeh particles float slowly upward throughout the chamber air
+- The high domed ceiling has warm golden light moving gently across it
 
-Style: 2.5D animated cartoon illustration, motion-graphic, warm golden-saffron color grade,
-Indian political documentary feel. NO photorealism — cartoon proportions and outlines must
-be preserved throughout. Cinematic quality motion within the cartoon world.
+CAMERA: slow cinematic push-in from wide chamber shot → gradually moving toward the
+podium — the PM figure grows larger and more prominent. By the end of 8 seconds, he
+and the glowing document fill the center of the frame, dominating the composition.
 
-Duration: 8 seconds. End frame: camera has moved close enough to see the Parliament
-entrance archway clearly, sun blazing behind the roof.
+Style: 2.5D animated cartoon, warm golden-saffron, cinematic, NOT photorealistic.
+Duration: 8 seconds.
 ```
 
 ---

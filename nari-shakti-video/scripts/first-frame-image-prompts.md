@@ -1,31 +1,56 @@
 # First-Frame Image Prompts -- All 7 Parts
-> **Workflow:** Generate First-Frame Still -> Upload to Veo3 as starting frame -> Veo3 animates the clip
-> **Tool:** Any image gen tool -- Flux, Midjourney, DALL-E 3, Firefly, etc.
-> **No reference images needed** -- all characters and settings are described inside each prompt.
-> **Orientation:** Landscape 16:9 (all prompts include this)
 
 ---
 
-> **How to use:**
-> 1. Copy-paste the prompt exactly
-> 2. Generate the image
-> 3. Save it with the filename shown
-> 4. Upload to Veo3 as the **starting frame** for that part
+## ✅ VEO3 WORKFLOW — STEP 1 OF 2 (PEHLE YAHAN SE SHURU KARO)
+
+```
+STEP 1 → Is file mein har part ka IMAGE PROMPT hai.
+         Copy karo → Midjourney / DALL-E 3 / Firefly mein paste karo → image generate karo.
+         Image save karo (filename neeche diya hai).
+
+STEP 2 → Veo3 (Flow) kholो → "Upload starting image" pe click karo →
+         apni generate ki hui image upload karo →
+         scripts/veo3-image-to-video-prompts.md se us part ka VIDEO PROMPT copy karo →
+         paste karo → Generate karo.
+
+⚠️  ZARURI: Pehle image ZAROOR upload karo Veo3 mein.
+    Bina image ke sirf text prompt se characters nahi aate — yahi problem thi.
+```
+
+---
+
+> **Tool for image:** Midjourney, DALL-E 3, Adobe Firefly, Ideogram, Flux
+> **Orientation:** Landscape 16:9 (sab prompts mein included hai)
+> **Style:** 2.5D cartoon illustration — photorealistic nahi
 
 ---
 
 ## PART 1 -- First Frame
-**Scene:** India's Parliament building at sunrise -- majestic, hopeful opening
+**Scene:** Parliament chamber interior — cartoon PM figure (grey beard, white kurta, saffron shawl) at podium presenting glowing bill
 
 ```
-2.5D animated cartoon still frame, landscape 16:9. India's new Sansad Bhavan Parliament
-building -- distinctive triangular/pyramidal stone roof, grand entrance staircase, tall
-ornate pillars, circular stone facade. Camera slightly low angle, wide shot looking upward.
-Sky behind the building is a deep warm golden-orange sunrise -- saffron and gold rays burst
-from behind the triangular roof dramatically, like a crown of light. The building looks
-powerful, historic, and majestic. No people or characters in the frame.
-Style: 2.5D animated cartoon illustration, motion-graphic, warm golden color grade,
-cinematic wide angle, Indian political documentary feel.
+2.5D animated cartoon still frame, landscape 16:9. Interior of India's new Parliament
+chamber (Sansad Bhavan) -- wide shot from audience side looking toward the central
+speaker's podium. Grand circular chamber with tiered wooden benches filled with seated
+cartoon figures, high ornate domed ceiling, warm golden-saffron light flooding in
+dramatically from above, like a sunrise inside the hall.
+
+AT THE CENTRAL PODIUM: A tall dignified cartoon figure stands upright and commanding.
+He wears a pristine white kurta-pajama with a bright saffron/orange shawl draped over
+his left shoulder. He has a full, neatly trimmed grey beard, neat white-grey hair, and
+deep confident eyes. Both his hands are raised, holding up a glowing official document.
+The document emits warm golden-white light as if it holds great historic importance.
+The text on the document reads: नारी शक्ति वंदन अधिनियम. A warm golden-saffron aura
+radiates around this figure -- he is the hero of this moment.
+
+The seated cartoon figures on the benches face him with attention. The entire chamber
+glows with warm sunrise-like golden light. Golden bokeh particles float gently upward
+in the air.
+
+Style: 2.5D animated cartoon illustration, NOT photorealistic, cartoon proportions
+and outlines must be clear, warm golden saffron color grade, cinematic Parliament
+interior, Indian political documentary feel.
 ```
 
 **Save As:** `frames/part-01-first-frame.png`
