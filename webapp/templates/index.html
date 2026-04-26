@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>ProfitPilot Prompts</title>
+  <style>
+    /* ── Reset & Variables ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f0f13;
+      --card: #1a1a24;
+      --card2: #22222f;
+      --accent: #7c6ff7;
+      --accent2: #a78bfa;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+      --text: #e2e2f0;
+      --muted: #888899;
+      --border: #2e2e40;
+      --radius: 14px;
+      --shadow: 0 4px 24px rgba(0,0,0,.45);
+    }
+    html { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; }
+    body { min-height: 100dvh; padding-bottom: 80px; }
+
+    /* ── Top Bar ─────────────────────────────────────────────────── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,15,19,.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 18px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    header h1 { font-size: 1.15rem; font-weight: 700; color: var(--accent2); letter-spacing: .5px; }
+    .date-badge {
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 20px; padding: 4px 12px;
+      font-size: .75rem; color: var(--muted);
+    }
+
+    /* ── Tab Bar ─────────────────────────────────────────────────── */
+    .tabs {
+      display: flex; gap: 0;
+      background: var(--card); border-bottom: 1px solid var(--border);
+      position: sticky; top: 57px; z-index: 99;
+    }
+    .tab-btn {
+      flex: 1; padding: 12px 8px; border: none; background: transparent;
+      color: var(--muted); font-size: .85rem; font-weight: 600;
+      cursor: pointer; border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    .tab-btn.active { color: var(--accent2); border-bottom-color: var(--accent2); }
+
+    /* ── Main Content ────────────────────────────────────────────── */
+    .tab-pane { display: none; padding: 16px; }
+    .tab-pane.active { display: block; }
+
+    /* ── Session Header ──────────────────────────────────────────── */
+    .session-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 14px; margin-top: 4px;
+    }
+    .session-header .icon { font-size: 1.4rem; }
+    .session-header h2 { font-size: 1rem; font-weight: 700; }
+    .niche-pill {
+      margin-left: auto;
+      background: var(--accent); color: #fff;
+      border-radius: 20px; padding: 3px 12px;
+      font-size: .72rem; font-weight: 700; letter-spacing: .3px;
+    }
+
+    /* ── Prompt Card ─────────────────────────────────────────────── */
+    .prompt-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); margin-bottom: 14px;
+      overflow: hidden; box-shadow: var(--shadow);
+      transition: border-color .2s;
+    }
+    .prompt-card.liked  { border-color: var(--green); }
+    .prompt-card.disliked { border-color: var(--red); opacity: .7; }
+
+    .card-top {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 14px 6px;
+    }
+    .slot-badge {
+      background: var(--card2); border-radius: 8px;
+      padding: 2px 10px; font-size: .72rem; color: var(--muted); font-weight: 700;
+    }
+    .feedback-row { display: flex; gap: 6px; }
+    .fb-btn {
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 4px 10px;
+      font-size: 1rem; cursor: pointer; line-height: 1;
+      transition: background .15s, border-color .15s;
+    }
+    .fb-btn:hover { background: var(--border); }
+    .fb-btn.active-like   { background: rgba(34,197,94,.2); border-color: var(--green); }
+    .fb-btn.active-dislike{ background: rgba(239,68,68,.2); border-color: var(--red); }
+
+    /* Prompt text */
+    .prompt-text {
+      padding: 8px 14px 10px;
+      font-size: .8rem; line-height: 1.55; color: #c8c8e0;
+      word-break: break-word;
+    }
+
+    /* Copy button */
+    .copy-btn {
+      display: flex; align-items: center; gap: 6px;
+      margin: 0 14px 10px;
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 8px; padding: 8px 16px;
+      font-size: .8rem; font-weight: 700; cursor: pointer;
+      transition: opacity .15s;
+    }
+    .copy-btn:hover { opacity: .88; }
+    .copy-btn.copied { background: var(--green); }
+
+    /* Regen button */
+    .regen-btn {
+      display: none;
+      align-items: center; gap: 6px;
+      margin: 0 14px 10px;
+      background: var(--card2); color: var(--yellow);
+      border: 1px solid var(--yellow); border-radius: 8px; padding: 7px 14px;
+      font-size: .78rem; font-weight: 700; cursor: pointer;
+      transition: background .15s;
+    }
+    .regen-btn:hover { background: rgba(245,158,11,.12); }
+    .prompt-card.disliked .regen-btn { display: flex; }
+
+    /* Image section */
+    .image-section { padding: 0 14px 14px; }
+    .image-preview {
+      width: 100%; aspect-ratio: 1/1; border-radius: 10px;
+      object-fit: cover; display: block;
+      background: var(--card2); border: 1px dashed var(--border);
+      margin-bottom: 8px;
+    }
+    .image-placeholder {
+      width: 100%; aspect-ratio: 1/1; border-radius: 10px;
+      background: var(--card2); border: 2px dashed var(--border);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 8px; color: var(--muted); font-size: .8rem;
+      margin-bottom: 8px; cursor: pointer;
+      transition: border-color .2s;
+    }
+    .image-placeholder:hover { border-color: var(--accent); color: var(--accent2); }
+    .image-placeholder .plus { font-size: 2rem; line-height: 1; }
+    .upload-input { display: none; }
+    .upload-label {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px;
+      font-size: .78rem; color: var(--muted); cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    .upload-label:hover { border-color: var(--accent); color: var(--accent2); }
+
+    /* ── Gallery ─────────────────────────────────────────────────── */
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .gallery-item {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      cursor: pointer; transition: border-color .2s;
+    }
+    .gallery-item:hover { border-color: var(--accent); }
+    .gallery-thumb {
+      width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;
+    }
+    .gallery-meta {
+      padding: 8px 10px;
+    }
+    .gallery-meta .g-niche { font-size: .7rem; font-weight: 700; color: var(--accent2); }
+    .gallery-meta .g-date  { font-size: .65rem; color: var(--muted); margin-top: 2px; }
+    .gallery-meta .g-fb    { font-size: .75rem; margin-top: 2px; }
+    .gallery-empty { text-align: center; color: var(--muted); padding: 60px 20px; font-size: .9rem; }
+
+    /* ── Modal ───────────────────────────────────────────────────── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,.85); backdrop-filter: blur(6px);
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); width: 100%; max-width: 480px;
+      max-height: 90dvh; overflow-y: auto; padding: 20px;
+    }
+    .modal-img { width: 100%; border-radius: 10px; margin-bottom: 14px; }
+    .modal-prompt {
+      font-size: .78rem; color: #c8c8e0; line-height: 1.6;
+      background: var(--card2); border-radius: 8px; padding: 10px 12px;
+      margin-bottom: 12px; word-break: break-word;
+    }
+    .modal-copy-top { margin: 0 0 10px; }
+      width: 100%; background: var(--card2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 10px; color: var(--text);
+      font-size: .85rem; font-weight: 700; cursor: pointer;
+    }
+
+    /* ── Toast ───────────────────────────────────────────────────── */
+    .toast {
+      position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%);
+      background: #2a2a3a; border: 1px solid var(--border);
+      border-radius: 20px; padding: 8px 20px;
+      font-size: .8rem; color: var(--text);
+      opacity: 0; pointer-events: none;
+      transition: opacity .25s;
+      z-index: 300; white-space: nowrap;
+    }
+    .toast.show { opacity: 1; }
+
+    /* ── Loading spinner ─────────────────────────────────────────── */
+    .spinner {
+      display: flex; align-items: center; justify-content: center;
+      padding: 60px 20px; color: var(--muted); font-size: .9rem; gap: 10px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner::before {
+      content: ''; width: 22px; height: 22px;
+      border: 2px solid var(--border); border-top-color: var(--accent2);
+      border-radius: 50%; animation: spin .7s linear infinite;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <h1>🚀 ProfitPilot</h1>
+  <span class="date-badge" id="todayDate">—</span>
+</header>
+
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab-btn active" data-tab="today">📅 Today</button>
+  <button class="tab-btn" data-tab="gallery">🖼️ Gallery</button>
+</div>
+
+<!-- TODAY TAB -->
+<div class="tab-pane active" id="tab-today">
+  <div id="todayContent"><div class="spinner">Loading prompts…</div></div>
+</div>
+
+<!-- GALLERY TAB -->
+<div class="tab-pane" id="tab-gallery">
+  <div id="galleryContent"><div class="spinner">Loading gallery…</div></div>
+</div>
+
+<!-- Modal (gallery detail) -->
+<div class="modal-overlay" id="galleryModal">
+  <div class="modal-box">
+    <img src="" alt="" class="modal-img" id="modalImg" />
+    <div class="modal-prompt" id="modalPrompt"></div>
+    <button class="modal-close copy-btn modal-copy-top" id="modalCopyBtn">📋 Copy Prompt</button>
+    <button class="modal-close" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ── Helpers ───────────────────────────────────────────────────────────── */
+function showToast(msg, duration = 1800) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), duration);
+}
+
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    if (btn) {
+      const orig = btn.textContent;
+      btn.textContent = '✅ Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
+    }
+    showToast('✅ Prompt copied!');
+  }).catch(() => {
+    // Fallback for older mobile browsers
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('✅ Prompt copied!');
+  });
+}
+
+/* ── Tab switching ─────────────────────────────────────────────────────── */
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    if (btn.dataset.tab === 'gallery') loadGallery();
+  });
+});
+
+/* ── Load Today ────────────────────────────────────────────────────────── */
+async function loadToday() {
+  const res = await fetch('/api/today');
+  const data = await res.json();
+
+  document.getElementById('todayDate').textContent = data.today;
+
+  const container = document.getElementById('todayContent');
+  container.innerHTML =
+    renderSession('🌅 Morning Batch', data.morning) +
+    renderSession('🌆 Evening Batch', data.evening);
+
+  attachCardListeners();
+}
+
+function renderSession(label, session) {
+  const { batch, prompts } = session;
+  const icon = label.startsWith('🌅') ? '🌅' : '🌆';
+  return `
+    <div class="session-header">
+      <span class="icon">${icon}</span>
+      <h2>${label}</h2>
+      <span class="niche-pill">${batch.niche_name}</span>
+    </div>
+    ${prompts.map(renderPromptCard).join('')}
+    <div style="height:8px"></div>
+  `;
+}
+
+function renderPromptCard(p) {
+  const likedClass = p.feedback === 1 ? 'liked' : p.feedback === 0 ? 'disliked' : '';
+  const likeActive = p.feedback === 1 ? 'active-like' : '';
+  const dislikeActive = p.feedback === 0 ? 'active-dislike' : '';
+  const imgHtml = p.image_path
+    ? `<img src="/static/uploads/${p.image_path}" class="image-preview" alt="Image ${p.slot}" />`
+    : `<div class="image-placeholder" onclick="triggerUpload(${p.id})">
+        <span class="plus">+</span>
+        <span>Tap to add image</span>
+       </div>`;
+
+  return `
+  <div class="prompt-card ${likedClass}" id="card-${p.id}">
+    <div class="card-top">
+      <span class="slot-badge">Prompt #${p.slot}</span>
+      <div class="feedback-row">
+        <button class="fb-btn ${likeActive}"    data-id="${p.id}" data-val="1" title="Like"   >👍</button>
+        <button class="fb-btn ${dislikeActive}" data-id="${p.id}" data-val="0" title="Dislike">👎</button>
+      </div>
+    </div>
+    <p class="prompt-text" id="pt-${p.id}">${escHtml(p.full_prompt)}</p>
+    <button class="copy-btn" data-copy="${escAttr(p.full_prompt)}">📋 Copy Prompt</button>
+    <button class="regen-btn" data-regen="${p.id}">🔄 Get New Prompt</button>
+    <div class="image-section">
+      <div id="imgArea-${p.id}">${imgHtml}</div>
+      <label class="upload-label" for="file-${p.id}">📷 ${p.image_path ? 'Replace image' : 'Upload image'}</label>
+      <input type="file" class="upload-input" id="file-${p.id}" accept="image/*" data-id="${p.id}" />
+    </div>
+  </div>`;
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function escAttr(s) {
+  return s.replace(/"/g,'&quot;');
+}
+
+function attachCardListeners() {
+  // Feedback buttons
+  document.querySelectorAll('.fb-btn').forEach(btn => {
+    btn.addEventListener('click', () => sendFeedback(+btn.dataset.id, +btn.dataset.val));
+  });
+
+  // Copy buttons
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    if (btn.dataset.copy !== undefined) {
+      btn.addEventListener('click', () => copyText(btn.dataset.copy, btn));
+    }
+  });
+
+  // Regen buttons
+  document.querySelectorAll('.regen-btn').forEach(btn => {
+    btn.addEventListener('click', () => regenPrompt(+btn.dataset.regen));
+  });
+
+  // File inputs
+  document.querySelectorAll('.upload-input').forEach(input => {
+    input.addEventListener('change', () => {
+      if (input.files[0]) uploadImage(+input.dataset.id, input.files[0]);
+    });
+  });
+}
+
+function triggerUpload(promptId) {
+  document.getElementById(`file-${promptId}`)?.click();
+}
+
+/* ── Feedback ──────────────────────────────────────────────────────────── */
+async function sendFeedback(promptId, value) {
+  await fetch(`/api/feedback/${promptId}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ value }),
+  });
+  showToast(value === 1 ? '👍 Liked!' : '👎 Disliked — tap 🔄 to get a new prompt');
+  await loadToday();
+}
+
+/* ── Regenerate ────────────────────────────────────────────────────────── */
+async function regenPrompt(promptId) {
+  const btn = document.querySelector(`[data-regen="${promptId}"]`);
+  if (btn) { btn.textContent = '⏳ Generating…'; btn.disabled = true; }
+  await fetch(`/api/regenerate/${promptId}`, { method: 'POST' });
+  showToast('✨ New prompt generated!');
+  await loadToday();
+}
+
+/* ── Upload Image ──────────────────────────────────────────────────────── */
+async function uploadImage(promptId, file) {
+  const area = document.getElementById(`imgArea-${promptId}`);
+  if (area) area.innerHTML = '<div class="image-placeholder"><span>⏳ Uploading…</span></div>';
+
+  const form = new FormData();
+  form.append('image', file);
+
+  const res = await fetch(`/api/upload/${promptId}`, { method: 'POST', body: form });
+  if (res.ok) {
+    showToast('✅ Image saved!');
+    await loadToday();
+  } else {
+    showToast('❌ Upload failed');
+    await loadToday();
+  }
+}
+
+/* ── Gallery ───────────────────────────────────────────────────────────── */
+async function loadGallery() {
+  document.getElementById('galleryContent').innerHTML = '<div class="spinner">Loading…</div>';
+  const res = await fetch('/api/gallery');
+  const items = await res.json();
+
+  if (items.length === 0) {
+    document.getElementById('galleryContent').innerHTML =
+      '<div class="gallery-empty">📭 No images saved yet.<br>Upload your generated images from the Today tab!</div>';
+    return;
+  }
+
+  document.getElementById('galleryContent').innerHTML =
+    `<div class="gallery-grid">${items.map(renderGalleryItem).join('')}</div>`;
+
+  document.querySelectorAll('.gallery-item').forEach(el => {
+    el.addEventListener('click', () => openModal(
+      el.dataset.img,
+      el.dataset.prompt,
+    ));
+  });
+}
+
+function renderGalleryItem(item) {
+  const fbIcon = item.feedback === 1 ? '👍' : item.feedback === 0 ? '👎' : '';
+  return `
+  <div class="gallery-item"
+       data-img="${item.image_path}"
+       data-prompt="${escAttr(item.full_prompt)}">
+    <img src="/static/uploads/${item.image_path}" class="gallery-thumb" alt="" loading="lazy" />
+    <div class="gallery-meta">
+      <div class="g-niche">${escHtml(item.niche_name)}</div>
+      <div class="g-date">${item.date} · ${item.session}</div>
+      <div class="g-fb">${fbIcon}</div>
+    </div>
+  </div>`;
+}
+
+/* ── Modal ─────────────────────────────────────────────────────────────── */
+function openModal(imgPath, promptText) {
+  document.getElementById('modalImg').src = `/static/uploads/${imgPath}`;
+  document.getElementById('modalPrompt').textContent = promptText;
+  document.getElementById('modalCopyBtn').onclick = () => copyText(promptText);
+  document.getElementById('galleryModal').classList.add('open');
+}
+function closeModal() {
+  document.getElementById('galleryModal').classList.remove('open');
+}
+document.getElementById('galleryModal').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+/* ── Init ──────────────────────────────────────────────────────────────── */
+loadToday();
+</script>
+</body>
+</html>
