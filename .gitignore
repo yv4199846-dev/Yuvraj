@@ -30,3 +30,9 @@ game28.dta
 # Log files
 warnings.log
 prompt_log.json
+webapp/prompts.db
+webapp/static/uploads/*.jpg
+webapp/static/uploads/*.jpeg
+webapp/static/uploads/*.png
+webapp/static/uploads/*.webp
+webapp/static/uploads/*.gif
