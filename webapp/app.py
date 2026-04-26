@@ -16,6 +16,7 @@ Run:
 Then open http://localhost:5000 on your phone (same WiFi).
 """
 
+import io
 import json
 import os
 import random
@@ -35,6 +36,7 @@ from flask import (
     send_from_directory,
     url_for,
 )
+from PIL import Image
 
 # ── Paths ──────────────────────────────────────────────────────────────────────
 BASE_DIR = Path(__file__).parent
@@ -47,7 +49,7 @@ UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "webp", "gif"}
 
 app = Flask(__name__)
-app.config["MAX_CONTENT_LENGTH"] = 20 * 1024 * 1024  # 20 MB max upload
+app.config["MAX_CONTENT_LENGTH"] = 10 * 1024 * 1024  # 10 MB max upload
 
 # ── Variation adjectives injected per slot to diversify the 6 prompts ──────────
 SLOT_VARIATIONS = [
@@ -261,14 +263,25 @@ def api_upload(prompt_id):
     if not allowed_file(file.filename):
         abort(400, "File type not allowed")
 
-    filename = safe_filename(file.filename)
-    save_path = UPLOAD_DIR / filename
-    file.save(str(save_path))
+    # Validate that the file is a real image using Pillow before saving
+    try:
+        img_bytes = file.read()
+        Image.open(io.BytesIO(img_bytes)).verify()
+    except Exception:
+        abort(400, "File is not a valid image")
 
-    # Remove old image if exists
+    filename = safe_filename(file.filename)
+    # Resolve and confirm the save path stays within UPLOAD_DIR (prevent traversal)
+    save_path = (UPLOAD_DIR / filename).resolve()
+    if not str(save_path).startswith(str(UPLOAD_DIR.resolve()) + os.sep):
+        abort(400, "Invalid file path")
+    with open(save_path, "wb") as fh:
+        fh.write(img_bytes)
+
+    # Remove old image — guard against path traversal from any DB value
     if prompt["image_path"]:
-        old = UPLOAD_DIR / prompt["image_path"]
-        if old.exists():
+        old = (UPLOAD_DIR / Path(prompt["image_path"]).name).resolve()
+        if str(old).startswith(str(UPLOAD_DIR.resolve()) + os.sep) and old.exists():
             old.unlink()
 
     db.execute(

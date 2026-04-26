@@ -25,8 +25,8 @@ python app.py
    ```bash
    python app.py
    ```
-2. Find your computer's local IP address (e.g. `192.168.1.5`)
-3. Open `http://192.168.1.5:5000` in your phone's browser (same WiFi)
+2. Find your computer's local IP address (e.g. run `ipconfig` on Windows or `ifconfig` on Mac/Linux)
+3. Open `http://<your-computer-ip>:5000` in your phone's browser (replace `<your-computer-ip>` with the IP from step 2, same WiFi required)
 
 > **Tip:** On most Android phones you can add it to your home screen via the browser menu for an app-like experience.
 

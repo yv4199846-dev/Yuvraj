@@ -201,7 +201,7 @@
       background: var(--card2); border-radius: 8px; padding: 10px 12px;
       margin-bottom: 12px; word-break: break-word;
     }
-    .modal-close {
+    .modal-copy-top { margin: 0 0 10px; }
       width: 100%; background: var(--card2); border: 1px solid var(--border);
       border-radius: 8px; padding: 10px; color: var(--text);
       font-size: .85rem; font-weight: 700; cursor: pointer;
@@ -261,7 +261,7 @@
   <div class="modal-box">
     <img src="" alt="" class="modal-img" id="modalImg" />
     <div class="modal-prompt" id="modalPrompt"></div>
-    <button class="modal-close copy-btn" id="modalCopyBtn" style="margin:0 0 10px">📋 Copy Prompt</button>
+    <button class="modal-close copy-btn modal-copy-top" id="modalCopyBtn">📋 Copy Prompt</button>
     <button class="modal-close" onclick="closeModal()">Close</button>
   </div>
 </div>
