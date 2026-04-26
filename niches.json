@@ -1,0 +1,294 @@
+{
+  "face_description": "Indian man in his late 20s, sharp jawline, confident expression, short dark hair, warm brown skin",
+  "base_quality_tags": "8k uhd, photorealistic, hyperdetailed, sharp focus, cinematic, award-winning photography",
+  "niches": [
+    {
+      "id": 1,
+      "category": "Business/Luxury",
+      "name": "CEO Boardroom",
+      "scene": "sitting at the head of a sleek glass boardroom table in a Manhattan skyscraper, city skyline at golden hour behind him, tailored navy blue suit, power pose",
+      "lighting": "warm golden hour light flooding through floor-to-ceiling windows",
+      "camera": "shot on Sony A7R V, 85mm f/1.4 lens, shallow depth of field",
+      "style": "Editorial fashion"
+    },
+    {
+      "id": 2,
+      "category": "Business/Luxury",
+      "name": "Private Jet Mogul",
+      "scene": "relaxing in a white leather seat inside a private Gulfstream jet, laptop open, champagne flute on side table, clouds visible through oval window",
+      "lighting": "soft ambient cabin lighting, warm tones",
+      "camera": "shot on Canon EOS R5, 35mm wide angle, cinematic crop",
+      "style": "Luxury lifestyle editorial"
+    },
+    {
+      "id": 3,
+      "category": "Business/Luxury",
+      "name": "Penthouse Entrepreneur",
+      "scene": "standing on the rooftop terrace of a Dubai penthouse at sunset, city lights beginning to glow, hands in pockets, confident smirk, casual blazer",
+      "lighting": "dramatic sunset backlight, golden rim light, purple-orange sky",
+      "camera": "shot on Leica SL2, 50mm Summilux",
+      "style": "Cinematic portrait"
+    },
+    {
+      "id": 4,
+      "category": "Business/Luxury",
+      "name": "Luxury Watch Close-up",
+      "scene": "adjusting a luxury Patek Philippe watch on wrist, wearing a crisp white shirt, blurred background of a marble office lobby",
+      "lighting": "studio-quality rim lighting, highlights catching the watch face",
+      "camera": "shot on Nikon Z9, 105mm macro, bokeh background",
+      "style": "High-fashion commercial"
+    },
+    {
+      "id": 5,
+      "category": "Adventure",
+      "name": "Mountain Summit",
+      "scene": "standing triumphantly at the snow-capped peak of the Himalayas, arms wide open, sunrise behind him painting the sky orange and purple, expedition gear",
+      "lighting": "golden sunrise backlight, lens flare, misty atmosphere",
+      "camera": "shot on GoPro Hero 12 ultra wide + Sony A1 composite, dramatic angle",
+      "style": "Adventure documentary"
+    },
+    {
+      "id": 6,
+      "category": "Adventure",
+      "name": "Deep Sea Explorer",
+      "scene": "underwater in full scuba gear exploring a vibrant coral reef, schools of tropical fish surrounding him, sunbeams piercing through crystal-clear Caribbean water",
+      "lighting": "natural underwater caustic light patterns, deep blue ambience",
+      "camera": "underwater housing, wide-angle fisheye, vivid colors",
+      "style": "National Geographic editorial"
+    },
+    {
+      "id": 7,
+      "category": "Adventure",
+      "name": "Astronaut",
+      "scene": "floating in zero gravity inside the International Space Station cupola module, Earth's blue curvature visible through the window, NASA-style spacesuit with custom patches",
+      "lighting": "harsh sun illumination from space, dramatic shadow contrast",
+      "camera": "cinematic wide angle, ultra-sharp NASA documentary style",
+      "style": "Photorealistic sci-fi"
+    },
+    {
+      "id": 8,
+      "category": "Adventure",
+      "name": "Jungle Explorer",
+      "scene": "machete in hand, pushing through a dense Amazon rainforest, ancient stone ruins visible in the background, khaki explorer outfit, backpack, confident gaze",
+      "lighting": "dappled jungle light filtering through canopy, god rays",
+      "camera": "shot on Canon 5D Mark IV, 24-70mm, adventure documentary style",
+      "style": "Indiana Jones cinematic"
+    },
+    {
+      "id": 9,
+      "category": "Pop Culture",
+      "name": "Marvel Superhero",
+      "scene": "standing on a rooftop in a sleek black and gold superhero suit, cape flowing in the wind, New York City skyline at night behind him, glowing energy in hands",
+      "lighting": "dramatic neon city lights, electric blue and gold energy glow",
+      "camera": "cinematic wide shot, heroic low angle, dynamic composition",
+      "style": "Marvel Studios concept art, photorealistic"
+    },
+    {
+      "id": 10,
+      "category": "Pop Culture",
+      "name": "Cyberpunk Hacker",
+      "scene": "in a neon-lit cyberpunk Tokyo alley at 3am, wearing a black techwear jacket, multiple holographic screens floating around him, rain-soaked streets reflecting neon signs",
+      "lighting": "neon pink and cyan ambient light, rain reflections, moody shadows",
+      "camera": "anamorphic lens flares, cinematic 2.39:1 crop, ultra-detailed",
+      "style": "Blade Runner 2049 aesthetic"
+    },
+    {
+      "id": 11,
+      "category": "Pop Culture",
+      "name": "Medieval Knight",
+      "scene": "standing in full ornate silver and gold plate armor in front of a medieval castle at dawn, sword raised toward the sky, dramatic fog rolling across the battlefield",
+      "lighting": "dramatic dawn light, volumetric fog, epic atmosphere",
+      "camera": "wide cinematic composition, low-angle hero shot",
+      "style": "Game of Thrones cinematic, photorealistic"
+    },
+    {
+      "id": 12,
+      "category": "Pop Culture",
+      "name": "Mughal Emperor",
+      "scene": "seated on a jeweled golden throne in a grand Mughal palace courtyard, wearing royal silk robes with pearls and emeralds, peacocks in the background, royal court",
+      "lighting": "warm royal golden light, dramatic palace columns, regal ambience",
+      "camera": "symmetrical composition, telephoto compression, ultra-detailed fabric textures",
+      "style": "Hyper-realistic historical portrait"
+    },
+    {
+      "id": 13,
+      "category": "Pop Culture",
+      "name": "Futuristic AI God",
+      "scene": "sitting in a levitating throne in a vast digital cosmos, surrounded by glowing data streams and floating neural network nodes, eyes glowing white, futuristic robes",
+      "lighting": "ethereal blue-white glow, galaxy background, divine light rays",
+      "camera": "cinematic ultra-wide, god-like low angle looking up",
+      "style": "Conceptual sci-fi art, photorealistic"
+    },
+    {
+      "id": 14,
+      "category": "Professional",
+      "name": "World-Class Surgeon",
+      "scene": "in a state-of-the-art operating room, wearing surgical scrubs and mask pulled down, arms crossed, confident expression, robotic surgical arms visible in background",
+      "lighting": "clean clinical white surgical lighting, slight dramatic shadows",
+      "camera": "editorial portrait style, 85mm, professional",
+      "style": "Medical drama editorial"
+    },
+    {
+      "id": 15,
+      "category": "Professional",
+      "name": "TED Talk Speaker",
+      "scene": "on the iconic red TED Talk stage, mid-gesture while speaking, large screen behind showing a complex AI diagram, packed auditorium audience visible",
+      "lighting": "dramatic stage spotlight, warm red TED branding tones",
+      "camera": "wide stage shot showing full environment, then tight 50mm portrait",
+      "style": "Conference photography, editorial"
+    },
+    {
+      "id": 16,
+      "category": "Professional",
+      "name": "Architect Visionary",
+      "scene": "leaning over a massive architectural blueprint table in a modern studio, holding a pencil, a 3D holographic building model floating above the plans",
+      "lighting": "modern studio natural light, warm creative workspace atmosphere",
+      "camera": "overhead and side angle combination, 35mm cinematic",
+      "style": "Design magazine editorial"
+    },
+    {
+      "id": 17,
+      "category": "Professional",
+      "name": "World Leader",
+      "scene": "standing at a UN General Assembly podium addressing the world, flags of all nations visible in the background, sharp charcoal suit, commanding presence",
+      "lighting": "formal diplomatic lighting, slight warm spotlight on speaker",
+      "camera": "wide establishing shot, then tight 85mm portrait",
+      "style": "Political documentary photography"
+    },
+    {
+      "id": 18,
+      "category": "Seasonal/Trending",
+      "name": "Diwali Royalty",
+      "scene": "standing in a palace courtyard filled with thousands of diyas (oil lamps) on Diwali night, wearing an embroidered royal sherwani, fireworks exploding in the sky behind him",
+      "lighting": "thousands of warm diya flames, firework bursts, magical golden glow",
+      "camera": "wide cinematic, long exposure fireworks, ultra-detailed fabric",
+      "style": "Cinematic Indian festival photography"
+    },
+    {
+      "id": 19,
+      "category": "Seasonal/Trending",
+      "name": "Summer Beachside Entrepreneur",
+      "scene": "sitting at a wooden desk set up on a pristine white sand beach in Maldives, MacBook open, coconut drink beside him, turquoise water stretching to the horizon",
+      "lighting": "bright tropical sunshine, golden hour warmth, sparkle on water",
+      "camera": "wide lifestyle shot, 24mm, shallow focus on subject",
+      "style": "Aspirational lifestyle photography"
+    },
+    {
+      "id": 20,
+      "category": "Seasonal/Trending",
+      "name": "Winter Ski Lodge Billionaire",
+      "scene": "standing in a luxury Swiss Alps ski lodge by a stone fireplace, holding a mug of cocoa, through the panoramic windows snow-covered mountains and a sunset visible",
+      "lighting": "warm fireplace glow mixed with cold blue mountain light through windows",
+      "camera": "cozy interior editorial, 35mm lens",
+      "style": "Luxury travel magazine"
+    },
+    {
+      "id": 21,
+      "category": "Business/Luxury",
+      "name": "Silicon Valley Founder",
+      "scene": "in a Tesla driving through San Francisco at night, city lights blurring past, phone in hand, futuristic Tesla dashboard glowing, cool casual hoodie",
+      "lighting": "neon city streaks, Tesla interior ambient lighting, motion blur background",
+      "camera": "in-car cinematic shot, wide angle showing both interior and exterior",
+      "style": "Tech lifestyle editorial"
+    },
+    {
+      "id": 22,
+      "category": "Adventure",
+      "name": "Formula 1 Racing Driver",
+      "scene": "sitting in an F1 cockpit in full racing suit and helmet off beside him, pit lane of Monaco Grand Prix in background, team mechanics visible",
+      "lighting": "bright Monaco sun, technical racing garage lights, dramatic shadows",
+      "camera": "low angle cockpit shot, wide showing race environment",
+      "style": "F1 documentary photography"
+    },
+    {
+      "id": 23,
+      "category": "Pop Culture",
+      "name": "Bollywood Star",
+      "scene": "on a grand Bollywood movie set with a 1000-person dance troupe behind him, wearing a white designer suit, arms outstretched in a dance pose, confetti raining down",
+      "lighting": "theatrical film set lighting, warm concert stage tones, sparkle and shine",
+      "camera": "wide cinematic, dramatic overhead crane shot",
+      "style": "Bollywood blockbuster promotional"
+    },
+    {
+      "id": 24,
+      "category": "Professional",
+      "name": "NASA Scientist",
+      "scene": "in the NASA mission control room surrounded by dozens of monitors showing rocket telemetry, wearing a NASA badge, pointing at a Mars trajectory on the main screen",
+      "lighting": "blue monitor glow, mission control ambient, dramatic tension lighting",
+      "camera": "wide room shot + tight 50mm portrait focus",
+      "style": "NASA documentary photography"
+    },
+    {
+      "id": 25,
+      "category": "Business/Luxury",
+      "name": "Yacht Party Host",
+      "scene": "standing on the deck of a mega-yacht in the Mediterranean, Santorini visible in the background, white linen shirt, sunglasses, crowd of guests visible around him",
+      "lighting": "perfect Mediterranean golden hour sunlight, sparkling sea",
+      "camera": "lifestyle editorial, 35mm wide, candid feel",
+      "style": "Luxury travel social media"
+    },
+    {
+      "id": 26,
+      "category": "Pop Culture",
+      "name": "Ancient Pharaoh",
+      "scene": "seated on a golden throne inside the grand halls of an ancient Egyptian palace, wearing pharaoh headdress and gold collar, hieroglyph-covered columns surrounding him",
+      "lighting": "torch-lit warm amber glow, shafts of light from above, ancient mystical atmosphere",
+      "camera": "wide symmetrical palace shot + close portrait",
+      "style": "Hyper-realistic historical epic"
+    },
+    {
+      "id": 27,
+      "category": "Adventure",
+      "name": "Arctic Expedition Leader",
+      "scene": "standing on the Arctic ice shelf at the North Pole, planting an expedition flag, wearing a bright red polar suit, Aurora Borealis visible in the sky",
+      "lighting": "green and purple Northern Lights, cold blue ice tones, dramatic contrast",
+      "camera": "wide epic landscape shot, 16mm ultra wide, epic composition",
+      "style": "National Geographic adventure"
+    },
+    {
+      "id": 28,
+      "category": "Seasonal/Trending",
+      "name": "Holi Festival of Colors",
+      "scene": "laughing joyfully in the middle of a Holi celebration, covered in vibrant splashes of pink, yellow, and blue powder, crowds celebrating in the background",
+      "lighting": "bright daylight, colorful powder clouds creating bokeh, joyful energy",
+      "camera": "candid 50mm, fast shutter to freeze powder explosion",
+      "style": "Festival documentary photography"
+    },
+    {
+      "id": 29,
+      "category": "Professional",
+      "name": "AI Research Lab",
+      "scene": "in a futuristic AI research lab, holographic neural networks floating around him, multiple robotic arms working behind him, wearing a lab coat with AR glasses on",
+      "lighting": "blue-white lab lighting, holographic overlays, clean tech aesthetic",
+      "camera": "wide shot showing full lab environment, 24mm cinematic",
+      "style": "Near-future tech editorial"
+    },
+    {
+      "id": 30,
+      "category": "Pop Culture",
+      "name": "Samurai Warrior",
+      "scene": "standing in a misty bamboo forest in feudal Japan at dawn, wearing traditional samurai armor with a katana raised, cherry blossom petals falling",
+      "lighting": "misty dawn diffused light, cherry blossom pink atmosphere, cinematic fog",
+      "camera": "wide cinematic samurai film shot, anamorphic lens",
+      "style": "Akira Kurosawa cinematic, photorealistic"
+    },
+    {
+      "id": 31,
+      "category": "Business/Luxury",
+      "name": "Art Collector",
+      "scene": "standing in a white-walled modern art gallery he owns, in front of a 10-foot abstract painting, wearing a slim-fit turtleneck, wine glass in hand, contemplative expression",
+      "lighting": "gallery track lighting, clean white walls, warm wine-hour ambience",
+      "camera": "editorial 50mm portrait, gallery lifestyle shot",
+      "style": "Art world editorial photography"
+    },
+    {
+      "id": 32,
+      "category": "Seasonal/Trending",
+      "name": "New Year Celebration",
+      "scene": "on a Times Square-style rooftop surrounded by fireworks, champagne glass raised, massive countdown screen visible behind him, confetti everywhere, midnight energy",
+      "lighting": "explosive firework colors, neon signage, festive sparkle",
+      "camera": "wide cinematic celebrating shot, 24mm dynamic angle",
+      "style": "New Year celebration editorial"
+    }
+  ]
+}
