@@ -111,6 +111,10 @@ def init_db():
     db.close()
 
 
+# Run once at import time so gunicorn workers also initialise the DB
+init_db()
+
+
 # ── Prompt generation ──────────────────────────────────────────────────────────
 
 def build_prompt(niche, data, variation_prefix=""):

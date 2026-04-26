@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: profitpilot
+    runtime: python
+    rootDir: webapp
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+    disk:
+      name: data
+      mountPath: /opt/render/project/src/webapp/data
+      sizeGB: 1
