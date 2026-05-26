@@ -50,6 +50,48 @@ npm run dev
 npm run build
 ```
 
+## Make it Live
+
+### 1) Local live
+
+```bash
+cd /tmp/workspace/yv4199846-dev/Yuvraj
+npm install
+npm run dev
+```
+
+Open the shown URL in browser (usually `http://localhost:5173`).
+
+### 2) Internet par live deploy (public URL)
+
+Before deploy, verify production build:
+
+```bash
+npm run build
+```
+
+#### Option A: Vercel
+
+1. Push this repository to GitHub.
+2. Go to Vercel and import the GitHub repo.
+3. Vercel will use:
+   - Build command: `npm run build`
+   - Output directory: `dist`
+4. Click Deploy and get your public URL.
+
+`vercel.json` is already added for this setup.
+
+#### Option B: Netlify
+
+1. Push this repository to GitHub.
+2. Go to Netlify and create a new site from Git.
+3. Netlify will use:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+4. Click Deploy and get your public URL.
+
+`netlify.toml` is already added for this setup.
+
 ## File Structure
 
 ```text
