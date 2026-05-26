@@ -153,10 +153,11 @@ function wireEvents() {
     hideSelectionTooltip()
   })
 
-  document.addEventListener('mouseup', () => {
-    state.lastPointer = { x: window.event?.clientX || state.lastPointer.x, y: window.event?.clientY || state.lastPointer.y }
-    const selection = window.getSelection()?.toString().trim()
-    if (selection && readerView.classList.contains('active') && readerViewport.contains(window.getSelection()?.anchorNode)) {
+  document.addEventListener('mouseup', (event) => {
+    state.lastPointer = { x: event.clientX || state.lastPointer.x, y: event.clientY || state.lastPointer.y }
+    const domSelection = window.getSelection()
+    const selection = domSelection?.toString().trim()
+    if (selection && readerView.classList.contains('active') && readerViewport.contains(domSelection?.anchorNode)) {
       state.selectedText = selection
       showSelectionTooltip(state.lastPointer.x + 12, state.lastPointer.y + 12)
     }
@@ -535,6 +536,10 @@ async function mockSummary(text) {
     .replace(/\s+/g, ' ')
     .split(/(?<=[.!?])\s+/)
     .filter(Boolean)
+
+  if (!sentences.length) {
+    return ['The visible section is short, but it emphasizes the current topic and its key idea.']
+  }
 
   return sentences.slice(0, 5).map((sentence) => sentence.trim())
 }
